@@ -23,3 +23,28 @@ A simple **Node.js** application implementing user authentication with **Express
 git clone https://github.com/kprashant544/Node-User-Auth-App.git
 cd Node-User-Auth-App
 npm install
+```
+## Folder Structure
+```bash
+Copy
+Edit
+├── controllers/
+│   └── authController.js    # Handles registration & login logic
+├── middlewares/
+│   └── verifyToken.js       # Verifies JWT tokens
+├── models/
+│   └── userModel.js         # User schema & model
+├── routes/
+│   └── authRoutes.js        # Authentication endpoints
+├── index.js                 # Main application entry point
+├── package.json
+└── .env.example
+```
+## Technologies Used
+
+- Node.js
+- Express.js
+- MongoDB & Mongoose
+- bcrypt
+- JSON Web Tokens (JWT)
+- Nodemon
