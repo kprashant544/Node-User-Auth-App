@@ -1,7 +1,7 @@
 const jwt = require("jsonwebtoken");
-const jwtKey = process.env.jwtKey;
+const JWT_KEY = process.env.JWT_KEY;
 
-function verifyToken(req, res, next) {
+const verifyToken = (req, res, next) => {
   const authorizationHeader = req.headers.authorization;
 
   if (!authorizationHeader) {
@@ -11,7 +11,7 @@ function verifyToken(req, res, next) {
   // Token format: "Bearer <token>"
   const token = authorizationHeader.split(" ")[1];
 
-  jwt.verify(token, jwtKey, (err, decoded) => {
+  jwt.verify(token, JWT_KEY, (err, decoded) => {
     if (err) {
       return res.status(401).json({ message: "Unauthorized: Invalid token" });
     } else {
@@ -21,6 +21,6 @@ function verifyToken(req, res, next) {
     req.user = decoded;
     next();
   });
-}
+};
 
 module.exports = verifyToken;
